@@ -160,7 +160,6 @@ function seedUsers(db, users) {
  */
 async function seedUsersLanguagesWords(db, users, languages, words) {
   await seedUsers(db, users)
-
   await db.transaction(async trx => {
     await trx.into('language').insert(languages)
     await trx.into('word').insert(words)
@@ -168,7 +167,6 @@ async function seedUsersLanguagesWords(db, users, languages, words) {
     const languageHeadWord = words.find(
       w => w.language_id === languages[0].id
     )
-
     await trx('language')
       .update({ head: languageHeadWord.id })
       .where('id', languages[0].id)

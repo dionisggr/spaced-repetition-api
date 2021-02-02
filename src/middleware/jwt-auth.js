@@ -23,14 +23,6 @@ async function requireAuth(req, res, next) {
 
     req.user = user;
 
-    // DELETE LATER //// ////
-    req.user = {
-      id: 2,
-      name: 'Dionis',
-      username: 'dionisggr'
-    }
-    // /// //// ///// ///
-
     next();
   } catch (error) {
     if (error instanceof JsonWebTokenError)
