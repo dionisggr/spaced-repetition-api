@@ -1,4 +1,6 @@
-const DatabaseService = {
+const LinkedList = require("./linked-list");
+
+const LanguageService = {
   getUsersLanguage(db, user_id) {
     return db
       .from("language")
@@ -17,33 +19,96 @@ const DatabaseService = {
     return db
       .from("word")
       .select(
-        "id",
+        "word.id",
         "language_id",
         "original",
         "translation",
         "next",
         "memory_value",
         "correct_count",
-        "incorrect_count"
+        "incorrect_count",
+        "language.head"
       )
+      .join("language", "language.id", "=", "word.language_id")
       .where({ language_id });
   },
-
-  updateLanguage(db, id, values) {
-    return db("language").update(values).where("id", id);
+  getNextWord(db, user_id) {
+    return db
+      .from("language")
+      .select(
+        "language.head",
+        "word.correct_count",
+        "word.incorrect_count",
+        "language.total_score",
+        "word.original",
+        "word.translation"
+      )
+      .where("language.user_id", user_id)
+      .first()
+      .leftJoin("word", "language.head", "word.id");
   },
 
-  updateWord(db, id, values) {
-    return db("word").update(values).where("id", id);
+  getHeadWord(db, head_id) {
+    return db.from("word")
+      .select("*")
+      .where("id", head_id);
+  },
+  createList(words) {
+    const wordsLinkedList = new LinkedList();
+
+    const current = words.find((word) => word.id === word.head);
+    wordsLinkedList.insertFirst(current);
+    let nextWord = words.find((word) => {
+      return word.id === current.next;
+    });
+
+    while (nextWord) {
+      wordsLinkedList.insertLast(nextWord);
+      nextWord = words.find((word) => {
+        return word.id === nextWord.next;
+      });
+    }
+    return wordsLinkedList;
+  },
+
+  async updateDatabase(db, language, list, user_id) {
+    const trx = await db.transaction();
+    try {
+      let currNode = list.head;
+
+      while (currNode) {
+        const val = currNode.value;
+
+        await db("word")
+          .transacting(trx)
+          .where({ id: val.id })
+          .update({
+            next: currNode.next && currNode.next.value.id,
+            correct_count: val.correct_count,
+            incorrect_count: val.incorrect_count,
+            memory_value: val.memory_value,
+          });
+        currNode = currNode.next;
+      }
+
+      await db("language").transacting(trx).where({ user_id }).update({
+        head: language.head,
+        total_score: language.total_score,
+      });
+
+      await trx.commit();
+    } catch (e) {
+      console.log(e.stack());
+      await trx.rollback();
+    }
+  },
+
+  displayList(list) {
+    let currNode = list.head;
+    while (currNode !== null) {
+      currNode = currNode.next;
+    }
   },
 };
-
-const ListService = {
-  populateList(db) {
-    return 
-  };
-};
-
-const LanguageService = { DatabaseService, ListService };
 
 module.exports = LanguageService;
