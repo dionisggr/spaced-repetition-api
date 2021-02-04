@@ -4,6 +4,7 @@ const { requireAuth } = require("../middleware/jwt-auth");
 
 const languageRouter = express.Router();
 const jsonBodyParser = express.json();
+const list = require('./linked-list');
 
 languageRouter.use(requireAuth).use(async (req, res, next) => {
   try {
@@ -16,6 +17,17 @@ languageRouter.use(requireAuth).use(async (req, res, next) => {
       return res.status(404).json({
         error: `You don't have any languages`,
       });
+
+    let words;
+    if (!list.head) {
+      words = await LanguageService.getLanguageWords(
+        req.app.get("db"),
+        language.id
+      );
+      words.forEach(word => {
+        list.insertLast(word);
+      });
+    };
 
     req.language = language;
     next();
@@ -44,22 +56,17 @@ languageRouter.get("/", async (req, res, next) => {
 
 languageRouter.get("/head", async (req, res, next) => {
   try {
-    const data = await LanguageService.getNextWord(
-      req.app.get("db"),
-      req.user.id
-    );
-
+    const language = req.language;
+    const head = list.head;
     const response = {
-      language: data.name,
-      nextWord: data.original,
-      wordCorrectCount: data.correct_count,
-      wordIncorrectCount: data.incorrect_count,
-      totalScore: data.total_score,
+      // language, // REMOVE
+      nextWord: head.value.original,
+      wordCorrectCount: head.value.correct_count,
+      wordIncorrectCount: head.value.incorrect_count,
+      totalScore: language.total_score,
     }
 
-    res.json(response);
-    next();
-
+    return res.json(response);
   } catch (error) {
     next(error);
   }
@@ -68,6 +75,10 @@ languageRouter.get("/head", async (req, res, next) => {
 languageRouter.post("/guess", jsonBodyParser, async (req, res, next) => {
   const { guess } = req.body;
   const language = req.language;
+  const words = await LanguageService.getLanguageWords(
+    req.app.get("db"),
+    language.id
+  );
 
   if (!guess) {
     return res.status(400).send({
@@ -76,50 +87,39 @@ languageRouter.post("/guess", jsonBodyParser, async (req, res, next) => {
   }
 
   try {
-    const words = await LanguageService.getLanguageWords(
-      req.app.get("db"),
-      language.id
-    );
-
-    const list = await LanguageService.createList(words);
-
-    const previous = list.head.value;
-    const next = previous;
-    const isCorrect = next.translation === guess;
+    const head = list.head.value;
+    const previous = { ...head };
+    const isCorrect = guess === head.translation;
 
     if (isCorrect) {
       language.total_score++;
-      next.correct_count++;
+      head.correct_count++;
 
-      const mem_val = next.memory_value * 2;
-      next.memory_value = Math.min(mem_val, words.length);
+      const mem_val = head.memory_value * 2;
+      head.memory_value = Math.min(mem_val, words.length-1);
     } else {
-      next.incorrect_count++;
-      next.memory_value = 1;
+      head.incorrect_count++;
+      head.memory_value = 1;
     }
     
-    list.remove(previous);
-    list.insertAt(next.memory_value, next);
+    list.insertAt(head.memory_value, head);
+    list.remove(head);
 
-    language.head = list.head.value.id;
+    const newHead = list.head.value;
+    language.head = newHead.id;
 
     await LanguageService.updateDatabase(
       req.app.get("db"),
       language,
-      list,
-      req.user.id
-    );
-
-    const nextWord = await LanguageService.getNextWord(
-      req.app.get("db"),
+      head,
       req.user.id
     );
 
     const response = {
-      nextWord: nextWord.original,
-      totalScore: nextWord.total_score,
-      wordCorrectCount: nextWord.correct_count,
-      wordIncorrectCount: nextWord.incorrect_count,
+      nextWord: newHead.original,
+      totalScore: language.total_score,
+      wordCorrectCount: previous.correct_count,
+      wordIncorrectCount: previous.incorrect_count,
       answer: previous.translation,
       isCorrect,
     };
