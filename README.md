@@ -5,14 +5,18 @@ The App allows users to train in Spanish for common words, and slowly scale up t
 
 This API stop represents a way for the app to communicate with the list of users, languages and words per language available for practice. Please read the instructions for more information.
 
+### API URL:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://guarded-springs-86527.herokuapp.com/ \
+*(No Landing Page)*
+
 ### Client-Side
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://devmap.vercel.app/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://devmap.vercel.app/
 
 ### Deployment Platform:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heroku
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Heroku
 
 ### Languages/Tools
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Javascript, Node.js, Express.js, Knex.js, PostgreSQL, Mocha, Chai, Supertest, Nodemon, Postgrator, Dotenv, JSON Web Tokens, Bcrypt, HTML5, CI scripts
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Javascript, Node.js, Express.js, Knex.js, PostgreSQL, Mocha, Chai, Supertest, Nodemon, Postgrator, Dotenv, JSON Web Tokens, Bcrypt, HTML5, CI scripts
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Loggers:** Morgan \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Securities:** CORS, Helmet
