@@ -62,30 +62,7 @@ Each endpoint manipulates information related to users.
 - [Create an User](https://github.com/dionisggr/devmap-api/wiki/Users): `POST /api/user`
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
 ## Local dev setup
 
 If using user `dunder-mifflin`:
