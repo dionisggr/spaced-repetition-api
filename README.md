@@ -1,4 +1,90 @@
 # Spaced repetition API!
+A simple API for the Spaced Repetition Language Trainer App for all HTTP-related requests.
+
+The App allows users to train in Spanish for common words, and slowly scale up to more complex and less frequently words. It allows for users to keep track of the last word in their history, and their score progress. It will further keep history of each time the user has answered the translation correctly and incorrectly.
+
+This API stop represents a way for the app to communicate with the list of users, languages and words per language available for practice. Please read the instructions for more information.
+
+### Client-Side
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://devmap.vercel.app/
+
+### Deployment Platform:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heroku
+
+### Languages/Tools
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Javascript, Node.js, Express.js, Knex.js, PostgreSQL, Mocha, Chai, Supertest, Nodemon, Postgrator, Dotenv, JSON Web Tokens, Bcrypt, HTML5, CI scripts
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Loggers:** Morgan \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Securities:** CORS, Helmet
+
+---
+
+## API Instructions
+
+### Endpoints that require Authentication
+Closed endpoints that require a valid username and password to be included in the header body of the request.
+
+#### Login
+
+- Step 1:  *(Generate JSON Web Token)*
+  - [Login](https://github.com/dionisggr/devmap-api/wiki/Access-Permission): `POST /api/auth/token`
+    - 'Admin' credentials
+      - Username: `dwight`
+      - Password: `pass`
+- Step 2: &lt;*Use generated JSON Web Token*&gt;
+
+### Endpoints that require Authorization
+Closed endpoints that require a valid JSON Web Token to be inlcuded in the header 'Authorization' of the request.
+```
+// Add to request header
+headers: {'Authorization': 'Bearer <JSON Web Token>'}
+```
+If sending content through request body (`POST`, `PATCH`), don't forget to add the following in the headers:
+```
+// Add to request header
+headers" {'Content-Type': 'application/json'}
+```
+
+#### Language related
+Each endpoint manipulates information related to language sets.
+- [Get Language and Set of Words](https://github.com/dionisggr/devmap-api/wiki/Projects): `GET /api/language`
+
+#### Word related
+Each endpoint manipulates information related to word data.
+- [Get Last Tracked Word](https://github.com/dionisggr/devmap-api/wiki/Projects): `GET /api/language/head`
+
+#### Guess related
+Each endpoint manipulates next information after user guess.
+- [Get Feedback and Next Word](https://github.com/dionisggr/devmap-api/wiki/Projects): `POST /api/language/guess`
+
+#### User related
+Each endpoint manipulates information related to users.
+- [Create an User](https://github.com/dionisggr/devmap-api/wiki/Users): `POST /api/user`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Local dev setup
 
