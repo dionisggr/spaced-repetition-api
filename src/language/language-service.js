@@ -71,41 +71,33 @@ const LanguageService = {
     return wordsLinkedList;
   },
 
-  async updateDatabase(db, language, list, user_id) {
-    const trx = await db.transaction();
+  async updateDatabase(db, language, word, user_id) {
     try {
-      let currNode = list.head;
+    const wordUpdate = await db("word")
+      .where({ id: word.id })
+      .update({
+        next: word.next.id,
+        correct_count: word.correct_count,
+        incorrect_count: word.incorrect_count,
+        memory_value: word.memory_value,
+      });
 
-      while (currNode) {
-        const val = currNode.value;
-
-        await db("word")
-          .transacting(trx)
-          .where({ id: val.id })
-          .update({
-            next: currNode.next && currNode.next.value.id,
-            correct_count: val.correct_count,
-            incorrect_count: val.incorrect_count,
-            memory_value: val.memory_value,
-          });
-        currNode = currNode.next;
-      }
-
-      await db("language").transacting(trx).where({ user_id }).update({
+    const languageUpdate = await db("language")
+      .where({ user_id })
+      .update({
         head: language.head,
         total_score: language.total_score,
       });
 
-      await trx.commit();
     } catch (e) {
-      console.log(e.stack());
-      await trx.rollback();
+      console.log(e);
     }
   },
 
   displayList(list) {
     let currNode = list.head;
     while (currNode !== null) {
+      console.log(currNode.value.original)
       currNode = currNode.next;
     }
   },

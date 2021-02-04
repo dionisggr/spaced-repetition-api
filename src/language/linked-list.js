@@ -27,11 +27,11 @@ class LinkedList {
     if (!item) {
       return "No value to insert";
     }
-    if (this.head === null) {
+    if (!this.head) {
       this.insertFirst(item);
     } else {
       let tempNode = this.head;
-      while (tempNode.next !== null) {
+      while (tempNode.next) {
         tempNode = tempNode.next;
       }
       tempNode.next = new _Node(item, null);
@@ -71,13 +71,13 @@ class LinkedList {
     if (!this.head) {
       return null;
     }
-    if (this.head.value === item) {
+    if (this.head.value.id === item.id) {
       this.head = this.head.next;
       return;
     }
     let currNode = this.head;
     let prevNode = this.head;
-    while (currNode !== null && currNode.value !== item) {
+    while (currNode !== null && currNode.value.id !== item.id) {
       prevNode = currNode;
       currNode = currNode.next;
     }
@@ -103,4 +103,6 @@ class LinkedList {
   }
 }
 
-module.exports = LinkedList;
+const list = new LinkedList();
+
+module.exports = list;
