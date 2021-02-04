@@ -39,7 +39,7 @@ Closed endpoints that require a valid JSON Web Token to be inlcuded in the heade
 // Add to request header
 headers: {'Authorization': 'Bearer <JSON Web Token>'}
 ```
-If sending content through request body (`POST`, `PATCH`), don't forget to add the following in the headers:
+If sending content through request body (`POST`), don't forget to add the following in the headers:
 ```
 // Add to request header
 headers" {'Content-Type': 'application/json'}
