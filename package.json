@@ -14,6 +14,7 @@
     "deploy": "git push heroku main"
   },
   "keywords": [],
+  "engines": {"node": "12.19.0"},
   "author": "Tom `tomatao` HT <tomht@thinkful.com>",
   "license": "MIT",
   "dependencies": {
