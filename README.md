@@ -10,7 +10,7 @@ This API stop represents a way for the app to communicate with the list of users
 *(No Landing Page)*
 
 ### Client-Side
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://devmap.vercel.app/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(Pending)*
 
 ### Deployment Platform:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Heroku
