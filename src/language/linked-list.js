@@ -49,15 +49,14 @@ class LinkedList {
       this.insertFirst(itemToInsert);
     } else {
       const node = this._findNthElement(nthPos - 1);
-      const newNode = new _Node(itemToInsert, null);
-      newNode.next = node.next;
+      const newNode = new _Node(itemToInsert, node.next);
       node.next = newNode;
     }
   }
 
   _findNthElement(pos) {
     let node = this.head;
-    for (let i = 0; i < pos; i++) {
+    for (let i = 1; i < pos; i++) {
       if (!node.next) {
         return node;
       } else {
@@ -87,12 +86,12 @@ class LinkedList {
     prevNode.next = currNode.next;
   }
 
-  find(item) {
+  find(id) {
     if (!this.head) {
       return null;
     }
     let currNode = this.head;
-    while (currNode.value !== item) {
+    while (currNode.value.id !== id) {
       if (currNode.next === null) {
         return null;
       } else {

@@ -87,10 +87,16 @@ languageRouter.post("/guess", jsonBodyParser, async (req, res, next) => {
   }
 
   try {
-    const head = list.head.value;
-    const previous = { ...head };
+    const headNode = list.find(language.head);
+    const head = headNode.value;
+    const previous = head;
     const isCorrect = guess === head.translation;
 
+    const wordCorrectCount = head.correct_count;
+    const wordIncorrectCount = head.incorrect_count;
+
+
+    // START HERE
     if (isCorrect) {
       language.total_score++;
       head.correct_count++;
@@ -100,10 +106,10 @@ languageRouter.post("/guess", jsonBodyParser, async (req, res, next) => {
     } else {
       head.incorrect_count++;
       head.memory_value = 1;
-    }
+    };
     
-    list.insertAt(head.memory_value, head);
     list.remove(head);
+    list.insertAt(head.memory_value, head);
 
     const newHead = list.head.value;
     language.head = newHead.id;
@@ -118,8 +124,8 @@ languageRouter.post("/guess", jsonBodyParser, async (req, res, next) => {
     const response = {
       nextWord: newHead.original,
       totalScore: language.total_score,
-      wordCorrectCount: previous.correct_count,
-      wordIncorrectCount: previous.incorrect_count,
+      wordCorrectCount,
+      wordIncorrectCount,
       answer: previous.translation,
       isCorrect,
     };
