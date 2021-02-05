@@ -56,7 +56,7 @@ class LinkedList {
 
   _findNthElement(pos) {
     let node = this.head;
-    for (let i = 1; i < pos; i++) {
+    for (let i = 0; i < pos; i++) {
       if (!node.next) {
         return node;
       } else {
