@@ -31,7 +31,7 @@ Closed endpoints that require a valid username and password to be included in th
 #### Login
 
 - Step 1:  *(Generate JSON Web Token)*
-  - [Login](https://github.com/dionisggr/devmap-api/wiki/Access-Permission): `POST /api/auth/token`
+  - [Login](https://github.com/dionisggr/spaced-repetition-api/blob/main/README.md): `POST /api/auth/token`
     - 'Admin' credentials
       - Username: `dwight`
       - Password: `pass`
@@ -51,19 +51,19 @@ headers" {'Content-Type': 'application/json'}
 
 #### Language related
 Each endpoint manipulates information related to language sets.
-- [Get Language and Set of Words](https://github.com/dionisggr/devmap-api/wiki/Projects): `GET /api/language`
+- [Get Language and Set of Words](https://guarded-springs-86527.herokuapp.com/api/language): `GET /api/language`
 
 #### Word related
 Each endpoint manipulates information related to word data.
-- [Get Last Tracked Word](https://github.com/dionisggr/devmap-api/wiki/Projects): `GET /api/language/head`
+- [Get Last Tracked Word](https://guarded-springs-86527.herokuapp.com/api/language/head): `GET /api/language/head`
 
 #### Guess related
 Each endpoint manipulates next information after user guess.
-- [Get Feedback and Next Word](https://github.com/dionisggr/devmap-api/wiki/Projects): `POST /api/language/guess`
+- [Get Feedback and Next Word](https://guarded-springs-86527.herokuapp.com/api/language/guess): `POST /api/language/guess`
 
 #### User related
 Each endpoint manipulates information related to users.
-- [Create an User](https://github.com/dionisggr/devmap-api/wiki/Users): `POST /api/user`
+- [Create an User](https://guarded-springs-86527.herokuapp.com/api/user): `POST /api/user`
 
 
 ---
