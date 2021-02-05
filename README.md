@@ -6,7 +6,7 @@ The App allows users to train in Spanish for common words, and slowly scale up t
 This API stop represents a way for the app to communicate with the list of users, languages and words per language available for practice. Please read the instructions for more information.
 
 ### API URL:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://guarded-springs-86527.herokuapp.com/ \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://sleepy-savannah-89538.herokuapp.com/ \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(No Landing)*
 
 ### Client-Side
