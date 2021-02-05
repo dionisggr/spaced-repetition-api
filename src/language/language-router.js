@@ -59,7 +59,6 @@ languageRouter.get("/head", async (req, res, next) => {
     const language = req.language;
     const head = list.head;
     const response = {
-      // language, // REMOVE
       nextWord: head.value.original,
       wordCorrectCount: head.value.correct_count,
       wordIncorrectCount: head.value.incorrect_count,
@@ -95,8 +94,6 @@ languageRouter.post("/guess", jsonBodyParser, async (req, res, next) => {
     const wordCorrectCount = head.correct_count;
     const wordIncorrectCount = head.incorrect_count;
 
-
-    // START HERE
     if (isCorrect) {
       language.total_score++;
       head.correct_count++;

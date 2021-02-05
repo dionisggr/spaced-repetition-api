@@ -10,7 +10,7 @@ VALUES
   (
     1,
     'dwight',
-    'Dunder Mifflin Admin',
+    'Admin',
     -- password = "pass"
     '$2a$10$fCWkaGbt7ZErxaxclioLteLUgg4Q3Rp09WW0s/wSLxDKYsaGYUpjG'
   );
@@ -22,13 +22,13 @@ VALUES
 INSERT INTO "word" ("id", "language_id", "original", "translation", "next")
 VALUES
   (1, 1, 'por favor', 'please', 2),
-  (2, 1, 'adiós', 'goodbye', 3),
+  (2, 1, 'negocio', 'business', 3),
   (3, 1, 'gracias', 'thank you', 4),
   (4, 1, 'lo siento', 'sorry', 5),
-  (5, 1, 'baño', 'restroom', 6),
+  (5, 1, 'compra', 'purchase', 6),
   (6, 1, 'comida', 'food', 7),
   (7, 1, 'dinero', 'money', 8),
-  (8, 1, 'buen día', 'good day', null);
+  (8, 1, 'agua', 'water', null);
 
 UPDATE "language" SET head = 1 WHERE id = 1;
 
