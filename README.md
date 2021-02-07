@@ -9,8 +9,11 @@ This API stop represents a way for the app to communicate with the list of users
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://fathomless-headland-59350.herokuapp.com/ \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(No Landing)*
 
-### Client-Side
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://spaced-repetition-blue.vercel.app/
+### Client Live
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://github.com/dionisggr/spaced-repetition/
+
+### Client GitHub:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://spaced-repetition-blue.vercel.
 
 ### Deployment Platform:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Heroku
