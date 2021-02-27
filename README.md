@@ -4,14 +4,14 @@ A simple Spanish language trainer app for anyone that uses the spaced repetition
 ---
 
 ### Working Prototype
-#### Client Live:
-https://spaced-repetition-blue.vercel.app
-
 #### API URL
 https://cryptic-badlands-24275.herokuapp.com
 
-#### API GitHub:
-https://github.com/dionisggr/spaced-repetition-api
+#### Client Live:
+https://spaced-repetition-blue.vercel.app
+
+#### Client GitHub:
+https://github.com/dionisggr/spaced-repetition
 
 ---
 
