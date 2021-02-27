@@ -71,27 +71,27 @@ https://github.com/dionisggr/spaced-repetition-api
 
 Register Page
 :-------------------------:
-![Register Page](/public/register.png)
+![Register Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/wireframes/register.png)
 
 Login Page
 :-------------------------:
-![Login Page](/public/login.png)
+![Login Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/wireframes/login.png)
 
 Dashboard
 :-------------------------:
-![Dashboard](/public/dashboard.png)
+![Dashboard](https://github.com/dionisggr/spaced-repetition/blob/main/public/wireframes/dashboard.png)
 
 Word Page
 :-------------------------:
-![Home Page](/public/word.png)
+![Word Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/wireframes/word.png)
 
 Correct Answer Page
 :-------------------------:
-![User Lists](/public/register.png)
+![Correct Answer Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/wireframes/correct.png)
 
 Incorrect Answer Page
 :-------------------------:
-![List Page](/public/register.png)
+![Incorrect Answer Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/wireframes/incorrect.png)
 
 ---
 
@@ -310,6 +310,8 @@ Each endpoint manipulates information about languages, words and guess/answer fe
 
 ---
 
+### Access related
+
 #### Login
 **URL:** `/api/auth/token` \
 **Method:** `POST` \
@@ -333,7 +335,7 @@ Each endpoint manipulates information about languages, words and guess/answer fe
 **Content example**
 ```
 {
-  "authToken": &lt;JSON Web Token&gt;
+  "authToken": <JSON Web Token>;
 }
 ```
 
@@ -350,7 +352,7 @@ Each endpoint manipulates information about languages, words and guess/answer fe
 **Content example**
 ```
 {
-  "authToken": &lt;JSON Web Token&gt;
+  "authToken": <JSON Web Token>;
 }
 ```
 
