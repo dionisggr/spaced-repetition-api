@@ -401,7 +401,7 @@ Each endpoint manipulates information user registration, login and authorization
 
 Register Page
 :-------------------------:
-![Register Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/screenshots/register.png)
+![Register Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/screenshots/registration.png)
 
 Login Page
 :-------------------------:
