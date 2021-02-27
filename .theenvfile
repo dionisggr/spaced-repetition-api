@@ -1,0 +1,12 @@
+NODE_ENV=development
+PORT=8000
+TZ='UTC'
+MIGRATION_DB_HOST=127.0.0.1
+MIGRATION_DB_PORT=5432
+MIGRATION_DB_NAME=spaced-repetition
+MIGRATION_DB_USER=dunder_mifflin
+MIGRATION_DB_PASS=
+DB_URL="postgresql://dunder_mifflin@localhost/spaced-repetition"
+DATABASE_URL=postgres://szcrfbvgzxbrdn:4c7580c20f8bb735cf6c1eeb83035e80660b0e8c021ef1202ae023b521f98fc5@ec2-52-205-3-3.compute-1.amazonaws.com:5432/d22n99js0usd3r?sslmode=require
+TEST_DB_URL="postgresql://dunder_mifflin@localhost/spaced-repetition-test"
+JWT_SECRET="spaced-repetition-jwt-secret"
