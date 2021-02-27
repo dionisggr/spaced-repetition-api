@@ -124,7 +124,7 @@ The app's functionality includes:
           * __Button.js__ - (stateless)
       * __LoginRoute.js__ - (stateless)
       * __NotFoundRoute.js__ - (stateless)
-    * __Footer.js__ - (stateless)
+      * __Footer.js__ - (stateless)
 
 ---
 
@@ -181,7 +181,7 @@ headers" {'Content-Type': 'application/json'}
 
 ### User related
 Each endpoint manipulates information related to users.
-- [Create User (Register)](): `POST /api/user`
+- [Create User (Register)](https://github.com/dionisggr/spaced-repetition/wiki/User-Endpoints): `POST /api/user`
 
 #### Create User *(Register)*
 **URL:** `/api/user` \
@@ -220,9 +220,9 @@ Each endpoint manipulates information related to users.
 
 ### Language-Word related
 Each endpoint manipulates information about languages, words and guess/answer feedback.
-- [Get Language Words](): `GET /api/language`
-- [Get Next Word](): `POST /api/language/head`
-- [Get Guess/Answer Feedback](): `GET /api/language/guess`
+- [Get Language Words](https://github.com/dionisggr/spaced-repetition/wiki/Language-Word-Endpoints): `GET /api/language`
+- [Get Next Word](https://github.com/dionisggr/spaced-repetition/wiki/Language-Word-Endpoints): `POST /api/language/head`
+- [Get Guess/Answer Feedback](https://github.com/dionisggr/spaced-repetition/wiki/Language-Word-Endpoints): `GET /api/language/guess`
 
 #### Get Language Words
 **URL:** `/api/language` \
@@ -311,13 +311,17 @@ Each endpoint manipulates information about languages, words and guess/answer fe
 ---
 
 ### Access related
+Each endpoint manipulates information user registration, login and authorization token refresh.
+- [Login](https://github.com/dionisggr/spaced-repetition/wiki/Access-Endpoints): `POST /api/auth/token`
+- [Refresh Token](https://github.com/dionisggr/spaced-repetition/wiki/Access-Endpoints): `PUT /api/auth/token`
+- [Registration](https://github.com/dionisggr/spaced-repetition/wiki/Access-Endpoints): `GET /api/user`
 
 #### Login
 **URL:** `/api/auth/token` \
 **Method:** `POST` \
 **Auth required:** Yes
 
-###### Request Body
+##### Request Body
 ```
 {
   "username": "dwight",
