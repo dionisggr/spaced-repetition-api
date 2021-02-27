@@ -401,27 +401,27 @@ Each endpoint manipulates information user registration, login and authorization
 
 Register Page
 :-------------------------:
-![Register Page]()
+![Register Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/screenshots/register.png)
 
 Login Page
 :-------------------------:
-![Login Page]()
+![Login Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/screenshots/login.png)
 
 Dashboard
 :-------------------------:
-![Dashboard]()
+![Dashboard](https://github.com/dionisggr/spaced-repetition/blob/main/public/screenshots/dashboard.png)
 
 Word Page
 :-------------------------:
-![Home Page]()
+![Home Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/screenshots/word.png)
 
 Correct Answer Page
 :-------------------------:
-![User Lists]()
+![User Lists](https://github.com/dionisggr/spaced-repetition/blob/main/public/screenshots/correct.png)
 
 Incorrect Answer Page
 :-------------------------:
-![List Page]()
+![List Page](https://github.com/dionisggr/spaced-repetition/blob/main/public/screenshots/incorrect.png)
 
 ---
 
