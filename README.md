@@ -1,7 +1,7 @@
 # LangCards: Spaced-Repetition Capstone
 A simple Spanish language trainer app for anyone that uses the [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition#:~:text=Spaced%20repetition%20is%20an%20evidence,exploit%20the%20psychological%20spacing%20effect.) revision technique for a more effective learning experience.
 
----
+--
 
 ### Working Prototype
 #### API URL
