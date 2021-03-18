@@ -4,9 +4,6 @@ A simple Spanish language trainer app for anyone that uses the [spaced repetitio
 ---
 
 ### Working Prototype
-#### API URL
-https://cryptic-badlands-24275.herokuapp.com
-
 #### Client Live:
 https://spaced-repetition-blue.vercel.app
 
